@@ -18,12 +18,12 @@ fun inputNumber(): String {
 	return Console.readLine()
 }
 
-fun makeRandomBaseballNumber(): List<String> {
-	val numbers = mutableListOf<String>()
-	while (numbers.size < 3) {
-		val number = Randoms.pickNumberInRange(1, 9).toString()
-		if (number != "0")
-			numbers.add(number)
+fun makeRandomBaseballNumber(): String {
+	var numbers = String()
+	while (numbers.length < 3) {
+		val number = Randoms.pickNumberInRange(1, 9).toChar()
+		if (number != '0')
+			numbers += number
 	}
 	return numbers
 }
