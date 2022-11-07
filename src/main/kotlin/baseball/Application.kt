@@ -9,8 +9,13 @@ fun main() {
 	val answer = makeRandomBaseballNumber()
 	var startOrExit = 1
 	while (startOrExit == 1 && startOrExit != 2) {
-
+		var userNumber = inputNumber()
+		isValidInputNumber(userNumber)
 	}
+}
+
+fun isValidInputNumber(userNumber: String) {
+
 }
 
 fun inputNumber(): String {
