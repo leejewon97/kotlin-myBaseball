@@ -20,14 +20,14 @@ fun callException(isValid: Boolean) {
 }
 
 fun isValidInputNumber(userNumber: String): Boolean {
-	val userNumber = userNumber.toMutableList()
-	val userNumberSize = userNumber.size
-	if (userNumberSize != 3)
+	val userNum = userNumber.toMutableList()
+	val userNumSize = userNum.size
+	if (userNumSize != 3)
 		return false
-	for (number in userNumber) {
-		if (number !in '0'..'9')
+	for (num in userNum) {
+		if (num !in '0'..'9')
 			return false
-		else if (userNumber.distinct().size != userNumberSize)
+		else if (userNum.distinct().size != userNumSize)
 			return false
 	}
 	return true
