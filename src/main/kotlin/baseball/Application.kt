@@ -9,12 +9,13 @@ fun main() {
 	val answer = makeRandomBaseballNumber()
 	var startOrExit = 1
 	while (startOrExit == 1 && startOrExit != 2) {
-		var userNumber = inputNumber().toMutableList()
+		var userNumber = inputNumber()
 		isValidInputNumber(userNumber)
 	}
 }
 
-fun isValidInputNumber(userNumber: MutableList<Char>): Boolean {
+fun isValidInputNumber(userNumber: String): Boolean {
+	val userNumber = userNumber.toMutableList()
 	val userNumberSize = userNumber.size
 	if (userNumberSize != 3)
 		return false
