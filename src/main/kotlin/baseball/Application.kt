@@ -10,8 +10,13 @@ fun main() {
 	var startOrExit = 1
 	while (startOrExit == 1 && startOrExit != 2) {
 		var userNumber = inputNumber()
-		isValidInputNumber(userNumber)
+		callException(isValidInputNumber(userNumber))
 	}
+}
+
+fun callException(isValid: Boolean) {
+	if (!isValid)
+		throw IllegalArgumentException("program exit")
 }
 
 fun isValidInputNumber(userNumber: String): Boolean {
