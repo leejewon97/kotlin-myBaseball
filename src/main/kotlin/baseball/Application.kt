@@ -9,10 +9,16 @@ fun main() {
 	val answer = makeRandomBaseballNumber()
 	var startOrExit = 1
 	while (startOrExit == 1 && startOrExit != 2) {
-		var userNumber = inputNumber()
+		val userNumber = inputNumber()
 		callException(isValidInputNumber(userNumber))
-		calculateBaseballScore(userNumber, answer)
+		val strike = calculateBaseballScore(userNumber, answer)
+		printIfSuccess(strike)
 	}
+}
+
+fun printIfSuccess(strike: Int) {
+	if (strike == 3)
+		println("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
 }
 
 fun calculateBaseballScore(userNumber: String, answer: String): Int {
