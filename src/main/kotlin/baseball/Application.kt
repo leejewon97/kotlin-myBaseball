@@ -17,6 +17,12 @@ fun main() {
 	}
 }
 
+fun restartGame(startOrExit: Int, answer: String): String {
+	if (startOrExit == 1)
+		return makeRandomBaseballNumber()
+	return answer
+}
+
 fun selectStartOrExit(): Int {
 	var startOrExit = 0
 	println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.")
