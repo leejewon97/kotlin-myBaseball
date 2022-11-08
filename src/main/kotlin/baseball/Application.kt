@@ -54,11 +54,12 @@ fun inputNumber(): String {
 }
 
 fun makeRandomBaseballNumber(): String {
-	var numbers = String()
-	while (numbers.length < 3) {
-		val number = Randoms.pickNumberInRange(1, 9).toChar()
-		if (number != '0')
-			numbers += number
+	val numbers = mutableListOf<Char>()
+	while (numbers.size < 3) {
+		val number = Randoms.pickNumberInRange(1, 9).toChar() + '0'.code
+		numbers += number
+		if (numbers.size != numbers.distinct().size)
+			numbers.remove(number)
 	}
-	return numbers
+	return numbers.toString()
 }
