@@ -29,6 +29,16 @@ fun calculateBaseballScore(userNumber: String, answer: String): Int {
 	return strike
 }
 
+fun countBall(userNumber: String, answer: String): Int {
+	var ball = 0
+	for (userDigit in userNumber) {
+		for (answerDigit in answer) {
+			if (userDigit == answerDigit) ball++
+		}
+	}
+	return ball
+}
+
 fun callException(isValid: Boolean) {
 	if (!isValid)
 		throw IllegalArgumentException("program exit")
