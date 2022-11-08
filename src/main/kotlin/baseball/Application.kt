@@ -16,6 +16,14 @@ fun main() {
 	}
 }
 
+fun selectStartOrExit(): Int {
+	var startOrExit = 0
+	println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.")
+	startOrExit = Console.readLine().toInt()
+	callException(startOrExit == 1 || startOrExit == 2)
+	return startOrExit
+}
+
 fun printIfSuccess(strike: Int) {
 	if (strike == 3)
 		println("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
