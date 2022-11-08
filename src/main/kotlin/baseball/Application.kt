@@ -8,11 +8,12 @@ fun main() {
 	println("숫자 야구 게임을 시작합니다.")
 	val answer = makeRandomBaseballNumber()
 	var startOrExit = 1
-	while (startOrExit == 1 && startOrExit != 2) {
+	while (startOrExit == 1) {
 		val userNumber = inputNumber()
 		callException(isValidInputNumber(userNumber))
 		val strike = calculateBaseballScore(userNumber, answer)
 		printIfSuccess(strike)
+		startOrExit = selectStartOrExit()
 	}
 }
 
