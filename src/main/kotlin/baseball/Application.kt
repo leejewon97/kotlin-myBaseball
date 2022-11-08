@@ -6,15 +6,23 @@ import camp.nextstep.edu.missionutils.Randoms
 fun main() {
 //	TODO("프로그램 구현")
 	println("숫자 야구 게임을 시작합니다.")
-	val answer = makeRandomBaseballNumber()
+	var answer = makeRandomBaseballNumber()
 	var startOrExit = 1
 	while (startOrExit == 1) {
 		val userNumber = inputNumber()
 		callException(isValidInputNumber(userNumber))
 		val strike = calculateBaseballScore(userNumber, answer)
-		printIfSuccess(strike)
-		startOrExit = selectStartOrExit()
+		if (printIfSuccess(strike)) {
+			startOrExit = selectStartOrExit()
+			answer = restartGame(startOrExit, answer)
+		}
 	}
+}
+
+fun restartGame(startOrExit: Int, answer: String): String {
+	if (startOrExit == 1)
+		return makeRandomBaseballNumber()
+	return answer
 }
 
 fun selectStartOrExit(): Int {
@@ -25,9 +33,12 @@ fun selectStartOrExit(): Int {
 	return startOrExit
 }
 
-fun printIfSuccess(strike: Int) {
-	if (strike == 3)
+fun printIfSuccess(strike: Int): Boolean {
+	if (strike == 3) {
 		println("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
+		return true
+	}
+	return false
 }
 
 fun calculateBaseballScore(userNumber: String, answer: String): Int {
@@ -95,5 +106,5 @@ fun makeRandomBaseballNumber(): String {
 		if (numbers.size != numbers.distinct().size)
 			numbers.remove(number)
 	}
-	return numbers.toString()
+	return numbers.joinToString("")
 }
