@@ -95,5 +95,5 @@ fun makeRandomBaseballNumber(): String {
 		if (numbers.size != numbers.distinct().size)
 			numbers.remove(number)
 	}
-	return numbers.toString()
+	return numbers.joinToString("")
 }
