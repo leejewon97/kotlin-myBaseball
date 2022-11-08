@@ -44,6 +44,7 @@ fun countBall(userNumber: String, answer: String): Int {
 			if (userDigit == answerDigit) ball++
 		}
 	}
+	ball -= countStrike(userNumber, answer)
 	return ball
 }
 
