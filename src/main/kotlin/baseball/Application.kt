@@ -29,6 +29,14 @@ fun calculateBaseballScore(userNumber: String, answer: String): Int {
 	return strike
 }
 
+fun countStrike(userNumber: String, answer: String): Int {
+	var strike = 0
+	for (i in 0..2)
+		if (userNumber[i] == answer[i])
+			strike++
+	return strike
+}
+
 fun countBall(userNumber: String, answer: String): Int {
 	var ball = 0
 	for (userDigit in userNumber) {
