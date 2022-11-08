@@ -12,8 +12,10 @@ fun main() {
 		val userNumber = inputNumber()
 		callException(isValidInputNumber(userNumber))
 		val strike = calculateBaseballScore(userNumber, answer)
-		printIfSuccess(strike)
-		startOrExit = selectStartOrExit()
+		if (printIfSuccess(strike)) {
+			startOrExit = selectStartOrExit()
+			answer = restartGame(startOrExit, answer)
+		}
 	}
 }
 
