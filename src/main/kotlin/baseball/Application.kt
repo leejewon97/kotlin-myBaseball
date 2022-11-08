@@ -11,7 +11,22 @@ fun main() {
 	while (startOrExit == 1 && startOrExit != 2) {
 		var userNumber = inputNumber()
 		callException(isValidInputNumber(userNumber))
+		calculateBaseballScore(userNumber, answer)
 	}
+}
+
+fun calculateBaseballScore(userNumber: String, answer: String): Int {
+	val ball = countBall(userNumber, answer)
+	val strike = countStrike(userNumber, answer)
+	if (ball == 0 && strike == 0)
+		println("낫싱")
+	else if (ball != 0 && strike != 0)
+		println("${ball}볼 ${strike}스트라이크")
+	else if (ball != 0)
+		println("${ball}볼")
+	else
+		println("${strike}스트라이크")
+	return strike
 }
 
 fun callException(isValid: Boolean) {
