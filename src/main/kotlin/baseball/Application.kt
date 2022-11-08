@@ -25,9 +25,12 @@ fun selectStartOrExit(): Int {
 	return startOrExit
 }
 
-fun printIfSuccess(strike: Int) {
-	if (strike == 3)
+fun printIfSuccess(strike: Int): Boolean {
+	if (strike == 3) {
 		println("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
+		return true
+	}
+	return false
 }
 
 fun calculateBaseballScore(userNumber: String, answer: String): Int {
